@@ -6,3 +6,4 @@ be/issue-tracker/docker-compose.yml
 .DS_Store
 .idea/**
 /.idea/**
+/.idea/

@@ -1,9 +1,13 @@
 spring:
   profiles:
-    group:
-      prod: prodDB, common
-      test: testDB, common
-    active: prod
+    active: test
+    include:
+      - common
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/issuetracker
+    username: user
+    password: admin
 ---
 spring:
   config:

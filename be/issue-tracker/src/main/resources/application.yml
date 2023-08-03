@@ -1,13 +1,9 @@
 spring:
   profiles:
-    active: test
-    include:
-      - common
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/issuetracker
-    username: user
-    password: admin
+    group:
+      prod: prodDB, common
+      test: testDB, common
+    active: prod
 ---
 spring:
   config:
@@ -16,3 +12,15 @@ spring:
   mvc:
     path match:
       matching-strategy: ant_path_matcher
+  sql:
+    init:
+      mode: always
+      encoding: UTF-8
+#      schema.sql, data.sql 경로 지정해주지 않아도 자동으로 주입.
+
+---
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: org.presents.issuetracker.issue.dto.vo,  org.presents.issuetracker.issue.entity,  org.presents.issuetracker.user.entity, org.presents.issuetracker.label.entity, org.presents.issuetracker.milestone.entity
+  mapper-locations: classpath:/mybatis/mapper/**.xml

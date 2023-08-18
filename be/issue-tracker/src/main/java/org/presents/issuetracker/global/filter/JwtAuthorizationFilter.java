@@ -50,7 +50,6 @@ public class JwtAuthorizationFilter implements Filter {
 			req.getRequestURI());
 
 		if (HttpMethod.OPTIONS.matches(req.getMethod())) {
-			chain.doFilter(request, response);
 			return;
 		}
 

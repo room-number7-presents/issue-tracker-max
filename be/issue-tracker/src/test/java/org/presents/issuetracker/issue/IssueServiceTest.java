@@ -187,4 +187,5 @@ public class IssueServiceTest {
 		verify(issueRepository, times(1)).delete(anyLong());
 		verify(commentRepository, times(1)).deleteByIssueId(anyLong());
 	}
+	
 }
